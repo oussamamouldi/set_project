@@ -1,0 +1,81 @@
+<odoo>
+    <data>
+        <!-- Tree View for product.set -->
+        <record id="view_product_set_tree" model="ir.ui.view">
+            <field name="name">set.tree</field>
+            <field name="model">product.set</field>
+            <field name="arch" type="xml">
+                <tree string="Sets">
+
+                    <field name="name"/>
+                    <field name="reference"/>
+
+                    <field name="quantity"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View for product.set -->
+        <record id="view_product_set_form" model="ir.ui.view">
+            <field name="name">setform</field>
+            <field name="model">product.set</field>
+            <field name="arch" type="xml">
+                <form string="Sets">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                                <tree>
+
+                                </tree>
+                            <field name="reference"/>
+                                <tree>
+
+                                </tree>
+                            <field name="quantity"/>
+                        </group>
+                            <notebook>
+                                <page string="Lines">
+                                    <field name="lines">
+                                        <tree editable="bottom">
+                                            <field name="product_set_id"/>
+                                            <field name="product_id"/>
+                                            <field name="quantity_prod"/>
+                                            <field name="unit_id"/>
+                                            <field name="reference_prod"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                                <page string="Diver">
+
+                                </page>
+                            </notebook>
+                            <button
+                                    string="Add product"
+                                    name="action_wizard"
+                                    type="object"
+
+                                    class="oe_highlight">
+
+                            </button>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Menu Items -->
+        <menuitem id="header_menu" name="Product Sets"/>
+        <menuitem id="menu_product_set" name="Product Set" parent="header_menu"/>
+        <menuitem id="menu_set" name="Set" parent="menu_product_set" action="action_view_set_list"/>
+
+        <!-- Action for product.set list view -->
+        <record model="ir.actions.act_window" id="action_view_set_list">
+            <field name="name">Sets</field>
+            <field name="res_model">product.set</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Add new set.</p>
+            </field>
+        </record>
+    </data>
+</odoo>

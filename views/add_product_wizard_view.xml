@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+
+
+        <!-- Form View for product.set -->
+        <record id="view_add_product_wizard_form" model="ir.ui.view">
+            <field name="name">add product</field>
+            <field name="model">add_product_wizard</field>
+            <field name="arch" type="xml">
+                <form string="Under set">
+                    <sheet>
+
+                            <notebook>
+                                <page string="Lines">
+                                    <field name="lines">
+                                        <tree editable="bottom">
+                                            <field name="product_set_id"/>
+                                            <field name="product_id"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                                <page string="Diver">
+
+                                </page>
+                            </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+        <!-- Action for product.set list view -->
+        <record model="ir.actions.act_window" id="action_view_set_list">
+            <field name="name">Sets</field>
+            <field name="res_model">product.set</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Add new set.</p>
+            </field>
+        </record>
+    </data>
+</odoo>

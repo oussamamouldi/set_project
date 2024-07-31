@@ -1,0 +1,49 @@
+<odoo>
+    <data>
+        <!-- Tree View for product.set.line -->
+        <record id="view_product_set_line_tree" model="ir.ui.view">
+            <field name="name">product.set.line.tree</field>
+            <field name="model">product.set.line</field>
+            <field name="arch" type="xml">
+                <tree string="Product Set Lines">
+                    <field name="product_id"/>
+                    <field name="quantity_prod"/>
+                    <field name="unit_id"/>
+                    <field name="reference_prod"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View for product.set.line -->
+        <record id="view_product_set_line_form" model="ir.ui.view">
+            <field name="name">product.set.line.form</field>
+            <field name="model">product.set.line</field>
+            <field name="arch" type="xml">
+                <form string="Product Set Line">
+                    <sheet>
+                        <group>
+                            <field name="product_set_id" string="Product Set"/>
+                            <field name="product_id" string="Product"/>
+                            <field name="quantity_prod" string="Quantity"/>
+                            <field name="unit_id" string="Unit of Measure"/>
+                            <field name="reference_prod" string="Reference"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+         <!-- Action for product.set.line -->
+        <record id="action_product_set_line" model="ir.actions.act_window">
+            <field name="name">Product Set Lines</field>
+            <field name="res_model">product.set.line</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_product_set_line_tree"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create a new product set line.</p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>
